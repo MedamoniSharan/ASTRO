@@ -1,0 +1,87 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-crimson-50: #fdf3f2;
+  --color-crimson-100: #f9e0de;
+  --color-crimson-500: #b8262a;
+  --color-crimson-600: #9e1b1e;
+  --color-crimson-700: #7a1216;
+  --color-crimson-800: #5c0d10;
+  --color-crimson-900: #3d080a;
+
+  --color-gold-100: #fff4cc;
+  --color-gold-200: #ffe58a;
+  --color-gold-300: #ffd24d;
+  --color-gold-400: #f4b400;
+  --color-gold-500: #d99a00;
+  --color-gold-600: #a87400;
+
+  --color-cream-50: #fcf9f2;
+  --color-cream-100: #f6efdf;
+  --color-cream-200: #ece0c6;
+  --color-sand: #d6c7a6;
+  --color-ink: #1f1a17;
+
+  --font-display: 'Cormorant Garamond', 'Marcellus', Georgia, serif;
+  --font-accent: 'Marcellus', Georgia, serif;
+  --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+
+  --animate-spin-slow: spin 60s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-cream-50 font-sans text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+
+  ::selection {
+    @apply bg-gold-300 text-crimson-900;
+  }
+}
+
+@utility container-x {
+  @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+}
+
+@utility btn {
+  @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-400;
+}
+
+@utility btn-primary {
+  @apply btn bg-crimson-600 text-cream-50 shadow-lg shadow-crimson-600/25 hover:-translate-y-0.5 hover:bg-crimson-700;
+}
+
+@utility btn-gold {
+  @apply btn bg-gold-400 text-crimson-900 shadow-lg shadow-gold-500/30 hover:-translate-y-0.5 hover:bg-gold-300;
+}
+
+@utility btn-outline {
+  @apply btn border border-crimson-600/30 bg-white/60 text-crimson-700 backdrop-blur hover:border-crimson-600 hover:bg-white;
+}
+
+@utility kolam-bg {
+  background-image: radial-gradient(circle at 1px 1px, rgb(158 27 30 / 0.08) 1px, transparent 0);
+  background-size: 22px 22px;
+}
