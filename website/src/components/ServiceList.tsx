@@ -30,7 +30,7 @@ const icons: Record<Service['icon'], LucideIcon> = {
 
 export function ServiceList() {
   return (
-    <section id="services" className="relative bg-cream-100 py-20 sm:py-28">
+    <section id="services" className="relative bg-cream-100 py-16 sm:py-24 lg:py-28">
       <div aria-hidden className="absolute inset-0 kolam-bg opacity-60" />
       <div className="container-x relative">
         <SectionHeading
@@ -39,7 +39,7 @@ export function ServiceList() {
           description="From daily devotional pujas to life's biggest ceremonies, we bring tradition to your doorstep."
         />
 
-        <RevealGroup className="mt-14 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-5">
+        <RevealGroup className="mt-10 grid grid-cols-2 gap-3 sm:mt-14 sm:gap-4 md:grid-cols-3 lg:grid-cols-5">
           {services.map((service) => {
             const Icon = icons[service.icon]
             return (

@@ -16,6 +16,15 @@
   --color-gold-500: #d99a00;
   --color-gold-600: #a87400;
 
+  --color-saffron-300: #ffc94d;
+  --color-saffron-400: #ffb020;
+  --color-saffron-500: #ff9a1a;
+  --color-saffron-600: #f07d0c;
+  --color-saffron-700: #c85f06;
+
+  --color-leaf-500: #3f8f2f;
+  --color-leaf-700: #245c1a;
+
   --color-cream-50: #fcf9f2;
   --color-cream-100: #f6efdf;
   --color-cream-200: #ece0c6;
@@ -43,11 +52,13 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
+    scroll-padding-top: 6.5rem;
   }
 
   body {
     @apply bg-cream-50 font-sans text-ink antialiased;
+    overflow-x: clip;
+    -webkit-tap-highlight-color: transparent;
   }
 
   h1,

@@ -4,7 +4,7 @@ import { WhatsAppIcon } from './BrandIcons'
 
 export function FloatingActions() {
   return (
-    <div className="fixed right-4 bottom-4 z-40 flex flex-col gap-3 sm:right-6 sm:bottom-6">
+    <div className="fixed right-6 bottom-6 z-40 hidden flex-col gap-3 md:flex">
       <a
         href={whatsappLink()}
         target="_blank"

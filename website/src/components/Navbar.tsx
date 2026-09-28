@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { Menu, Phone, X } from 'lucide-react'
 import logo from '../assets/logo.jpg'
-import { navLinks, site, telLink } from '../data/site'
+import { navLinks, site, telLink, whatsappLink } from '../data/site'
+import { WhatsAppIcon } from './BrandIcons'
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -20,36 +21,37 @@ export function Navbar() {
   }, [open])
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'border-b border-sand/60 bg-cream-50/85 shadow-sm backdrop-blur-lg'
-          : 'bg-cream-50'
-      }`}
-    >
-      <nav className="container-x flex h-18 items-center justify-between gap-4">
-        <a href="#home" className="flex min-w-0 items-center gap-3">
+    <header className="sticky top-0 z-50 py-2 sm:py-3">
+      <div className="container-x max-sm:px-3">
+      <nav
+        className={`flex h-16 items-center justify-between gap-3 rounded-2xl bg-white/95 pr-2 pl-3 backdrop-blur-lg transition-shadow duration-300 sm:h-20 sm:gap-4 sm:px-6 ${
+          scrolled ? 'shadow-xl shadow-crimson-900/15 ring-1 ring-sand/60' : 'shadow-lg shadow-saffron-700/25'
+        }`}
+      >
+        <a href="#home" className="flex min-w-0 items-center gap-2.5 sm:gap-3">
           <img
             src={logo}
             alt={`${site.name} logo`}
-            className="size-12 shrink-0 rounded-full object-cover ring-2 ring-gold-400/70"
+            className="size-10 shrink-0 rounded-full object-cover ring-2 ring-gold-400/70 sm:size-12"
           />
           <span className="min-w-0 leading-tight">
-            <span className="block truncate font-display text-lg font-bold text-crimson-700 sm:text-xl">
+            <span className="block font-display text-[15px] leading-[1.1] font-bold text-crimson-700 min-[400px]:text-base sm:text-xl">
               {site.name}
             </span>
-            <span className="block font-accent text-[11px] tracking-[0.2em] text-gold-600 uppercase">
+            <span className="mt-0.5 block font-accent text-[9px] tracking-[0.18em] text-gold-600 uppercase sm:text-[11px] sm:tracking-[0.2em]">
               {site.tagline}
             </span>
           </span>
         </a>
 
         <ul className="hidden items-center gap-7 lg:flex">
-          {navLinks.map((link) => (
+          {navLinks.map((link, i) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="relative text-sm font-medium text-ink/80 transition-colors after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-0 after:bg-gold-400 after:transition-all hover:text-crimson-600 hover:after:w-full"
+                className={`relative font-accent text-[13px] tracking-[0.12em] uppercase transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:bg-crimson-600 after:transition-all hover:text-crimson-600 hover:after:w-full ${
+                  i === 0 ? 'text-crimson-600 after:w-full' : 'text-ink after:w-0'
+                }`}
               >
                 {link.label}
               </a>
@@ -65,13 +67,14 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setOpen(true)}
-            className="rounded-full p-2 text-crimson-700 hover:bg-crimson-50 lg:hidden"
+            className="grid size-11 shrink-0 place-items-center rounded-full text-crimson-700 hover:bg-crimson-50 lg:hidden"
             aria-label="Open menu"
           >
             <Menu className="size-6" />
           </button>
         </div>
       </nav>
+      </div>
 
       <AnimatePresence>
         {open && (
@@ -84,7 +87,7 @@ export function Navbar() {
               onClick={() => setOpen(false)}
             />
             <motion.aside
-              className="fixed inset-y-0 right-0 z-50 flex w-72 flex-col bg-cream-50 p-6 shadow-2xl lg:hidden"
+              className="fixed inset-y-0 right-0 z-50 flex w-[min(20rem,85vw)] flex-col overflow-y-auto bg-cream-50 p-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] shadow-2xl lg:hidden"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
@@ -114,10 +117,21 @@ export function Navbar() {
                   </li>
                 ))}
               </ul>
-              <a href={telLink} className="btn-primary mt-auto">
-                <Phone className="size-4" />
-                Call {site.phone}
-              </a>
+              <div className="mt-auto grid gap-2 pt-8">
+                <a href={telLink} className="btn-primary">
+                  <Phone className="size-4" />
+                  Call {site.phone}
+                </a>
+                <a
+                  href={whatsappLink()}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn bg-[#25D366] text-white hover:bg-[#1ebe5b]"
+                >
+                  <WhatsAppIcon className="size-4" />
+                  WhatsApp Us
+                </a>
+              </div>
             </motion.aside>
           </>
         )}

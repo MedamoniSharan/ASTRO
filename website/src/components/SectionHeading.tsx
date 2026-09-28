@@ -30,14 +30,16 @@ export function SectionHeading({
         <span className={`h-px w-8 ${dark ? 'bg-gold-300/60' : 'bg-crimson-600/40'}`} />
       </div>
       <h2
-        className={`mt-4 text-4xl leading-tight font-semibold sm:text-5xl ${
+        className={`mt-3 text-[2rem] leading-tight font-semibold sm:mt-4 sm:text-5xl ${
           dark ? 'text-cream-50' : 'text-crimson-800'
         }`}
       >
         {title}
       </h2>
       {description && (
-        <p className={`mt-4 text-base leading-relaxed ${dark ? 'text-cream-100/80' : 'text-ink/70'}`}>
+        <p
+          className={`mt-3 text-[15px] leading-relaxed sm:mt-4 sm:text-base ${dark ? 'text-cream-100/80' : 'text-ink/70'}`}
+        >
           {description}
         </p>
       )}
