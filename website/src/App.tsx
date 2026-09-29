@@ -1,4 +1,5 @@
 import { About } from './components/About'
+import { BookingForm } from './components/BookingForm'
 import { ContactCTA } from './components/ContactCTA'
 import { FloatingActions } from './components/FloatingActions'
 import { Footer } from './components/Footer'
@@ -22,6 +23,7 @@ export default function App() {
       <main>
         <Hero />
         <Highlights />
+        <BookingForm />
         <PujaGrid />
         <Yagams />
         <ServiceList />
