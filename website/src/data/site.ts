@@ -8,6 +8,7 @@ import narayanaBali from '../assets/narayana-bali.jpg'
 import pitruShanti from '../assets/pitru-shanti.jpg'
 import sarpaDosha from '../assets/sarpa-dosha.jpg'
 import kujaDosha from '../assets/kuja-dosha.jpg'
+import navagrahaShanti from '../assets/navagraha-shanti.jpg'
 import sudarshanaYagam from '../assets/sudarshana-yagam.jpg'
 import chandiYagam from '../assets/chandi-yagam.jpg'
 import rudraYagam from '../assets/rudra-yagam.jpg'
@@ -135,6 +136,7 @@ export const yagams: Yagam[] = [
     name: 'All Navagraha Shanti',
     description: 'Shanti for all nine planets to balance their influences and bring stability in life.',
     icon: 'sun',
+    image: navagrahaShanti,
   },
   {
     name: 'Sudarshana Yagam',
