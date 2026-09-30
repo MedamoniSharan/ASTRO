@@ -8,6 +8,9 @@ import narayanaBali from '../assets/narayana-bali.jpg'
 import pitruShanti from '../assets/pitru-shanti.jpg'
 import sarpaDosha from '../assets/sarpa-dosha.jpg'
 import kujaDosha from '../assets/kuja-dosha.jpg'
+import sudarshanaYagam from '../assets/sudarshana-yagam.jpg'
+import chandiYagam from '../assets/chandi-yagam.jpg'
+import rudraYagam from '../assets/rudra-yagam.jpg'
 
 export const site = {
   name: 'Sri Bhramari Veda Puja Services',
@@ -124,6 +127,7 @@ export type Yagam = {
   name: string
   description: string
   icon: 'sun' | 'disc' | 'flame' | 'moon'
+  image?: string
 }
 
 export const yagams: Yagam[] = [
@@ -136,16 +140,19 @@ export const yagams: Yagam[] = [
     name: 'Sudarshana Yagam',
     description: 'Invoke Sri Sudarshana for protection from negativity, obstacles and unseen troubles.',
     icon: 'disc',
+    image: sudarshanaYagam,
   },
   {
     name: 'Chandi Yagam',
     description: 'A powerful homam to Goddess Chandi for strength, courage and victory over difficulties.',
     icon: 'flame',
+    image: chandiYagam,
   },
   {
     name: 'Rudra Yagam',
     description: 'Rudra abhishekam and homam to Lord Shiva for health, peace and spiritual upliftment.',
     icon: 'moon',
+    image: rudraYagam,
   },
 ]
 
